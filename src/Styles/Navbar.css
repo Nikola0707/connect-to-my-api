@@ -1,0 +1,13 @@
+.d-flex{
+    display: flex;
+    justify-content: center;
+}
+.d-flex li{
+    margin: 0 10px;
+    list-style-type: none;
+    border-bottom: 2px solid black;
+}
+.d-flex li a{
+    text-decoration: none;
+    color: black;
+}
