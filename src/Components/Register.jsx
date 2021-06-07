@@ -40,13 +40,13 @@ const Register = () => {
     <>
     <h1>{responseMessage}</h1>
       <form method="POST">
-        <h1>Register</h1>
+        <h1>Please fill the form.</h1>
         <input 
         className="d-block-input"
           type="text"
           name="full_name"
           id="full_name"
-          placeholder="full_name"
+          placeholder="Full Name"
           value={fullName}
           onChange={saveInput}
         />
@@ -55,7 +55,7 @@ const Register = () => {
           type="email"
           name="email"
           id="email"
-          placeholder="email"
+          placeholder="Email"
           value={email}
           onChange={saveInput}
         />
@@ -64,7 +64,7 @@ const Register = () => {
           type="password"
           name="password"
           id="password"
-          placeholder="password"
+          placeholder="Password"
           value={password}
           onChange={saveInput}
         />
@@ -73,11 +73,11 @@ const Register = () => {
           type="password"
           name="confirm_password"
           id="confirm_password"
-          placeholder="confirm password"
+          placeholder="Confirm password"
           value={confirmPassword}
           onChange={saveInput}
         />
-        <button type="submit" onClick={signUp}>
+        <button type="submit" onClick={signUp} className="d-block-input">
           Sign Up
         </button>
       </form>

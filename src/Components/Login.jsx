@@ -34,12 +34,12 @@ const Login = () => {
   return (
     <>
       <form method="POST">
-        <h1>Login</h1>
+      <h1>Please fill the form.</h1>
         <input
           type="email"
           name="email"
           id="loginEmail"
-          placeholder="email"
+          placeholder="Email"
           onChange={saveInput}
           className="d-block-input"
         />
@@ -47,7 +47,7 @@ const Login = () => {
           type="password"
           name="password"
           id="loginPassword"
-          placeholder="password"
+          placeholder="Password"
           onChange={saveInput}
           className="d-block-input"
         />
