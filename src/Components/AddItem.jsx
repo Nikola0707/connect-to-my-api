@@ -6,7 +6,8 @@ const AddItem = () => {
   const jwtToken = jwt.jwtToken;
 
   const [file, setFile] = useState({});
-  const [filePath, setFilePath] = useState("");
+  const [filePath, setFilePath] = useState(null);
+  const [showPreview, setShowPreview] = useState(false);
   const [description, setDescription] = useState("");
 
   const saveInput = (e) => {
@@ -19,6 +20,7 @@ const AddItem = () => {
   const fileOnChange = (e) => {
     setFile(e.target.files[0]);
     setFilePath(URL.createObjectURL(e.target.files[0]));
+    setShowPreview(true);
   };
 
   const upload = (e) => {
@@ -40,22 +42,33 @@ const AddItem = () => {
       .then((res) => res.json())
       .then((resBody) => {
         console.log(resBody);
+        setFilePath(null);
+        setShowPreview(false);
+        setDescription("");
       });
   };
 
   return (
-    <>
+    <div>
       <form onSubmit={upload}>
         <div className="img-preview">
-          <img src={filePath} alt="img-preview" />
+          {showPreview ? (
+            <div>
+              <p>Recipe Image</p>
+              <img src={filePath} alt="img-preview" />
+            </div>
+          ) : null}
         </div>
         <input name="file" type="file" onChange={fileOnChange} />
-        <input name="description" type="text" onChange={saveInput} />
-        <button type="submit" className="btn btn-dark btn-lg btn-block">
-          Submit
-        </button>
+        <input
+          name="description"
+          type="text"
+          onChange={saveInput}
+          value={description}
+        />
+        <button type="submit">Submit</button>
       </form>
-    </>
+    </div>
   );
 };
 
